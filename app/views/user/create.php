@@ -6,30 +6,29 @@
     <title>Create User</title>
     <style>
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f7fdf9;
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #222;
+            color: #000;
         }
         .form-container {
-            background: #fff;
-            color: #222;
+            background: #ffffff;
+            color: #000;
             padding: 32px 40px;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(67,233,123,0.10);
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1);
             width: 370px;
-            animation: fadeIn 0.6s ease-in-out;
         }
         .form-container h1 {
             text-align: center;
             margin-bottom: 24px;
             font-size: 2rem;
-            color: #219150;
+            color: #007bff;
             font-weight: 700;
             letter-spacing: 1px;
         }
@@ -38,44 +37,40 @@
             display: block;
             margin-top: 16px;
             margin-bottom: 6px;
-            color: #219150;
+            color: #007bff;
         }
         input[type="text"], input[type="email"] {
             width: 100%;
             padding: 12px;
-            border: 1px solid #43e97b;
+            border: 1px solid #007bff;
             border-radius: 8px;
             outline: none;
-            background: linear-gradient(90deg, #f7fdf9 0%, #f2fbf6 100%);
-            box-shadow: 0 2px 8px rgba(67,233,123,0.06);
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.06);
             transition: border 0.2s, box-shadow 0.2s;
             font-size: 15px;
         }
         input[type="text"]:focus, input[type="email"]:focus {
-            border: 1.5px solid #219150;
-            box-shadow: 0 0 8px #43e97b;
+            border: 1.5px solid #0056b3;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
         input[type="submit"] {
             margin-top: 28px;
             width: 100%;
             padding: 13px;
-            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            background: #007bff;
             color: #fff;
             font-size: 1.1rem;
             font-weight: 700;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(67,233,123,0.10);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
             transition: background 0.2s, box-shadow 0.2s;
         }
         input[type="submit"]:hover {
-            background: #219150;
-            box-shadow: 0 4px 16px rgba(67,233,123,0.18);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: #0056b3;
+            box-shadow: 0 4px 16px rgba(0, 123, 255, 0.2);
         }
     </style>
 </head>

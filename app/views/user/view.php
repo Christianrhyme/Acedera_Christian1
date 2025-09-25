@@ -8,11 +8,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f7fdf9;
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
             margin: 0;
             padding: 0;
-            color: #222;
+            color: #000;
         }
         .top-bar {
             width: 90%;
@@ -22,7 +22,7 @@
             align-items: center;
         }
         .create-btn {
-            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            background: #007bff;
             color: #fff;
             padding: 10px 24px;
             border-radius: 8px;
@@ -31,62 +31,56 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(67,233,123,0.08);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
             transition: background 0.2s;
         }
         .create-btn:hover {
-            background: #219150;
+            background: #0056b3;
         }
         h1 {
             text-align: center;
             margin: 40px 0 32px 0;
             font-size: 2.2rem;
             font-weight: 700;
-            color: #219150;
+            color: #007bff;
             letter-spacing: 1px;
         }
         .table-container {
             width: 95%;
             margin: 0 auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 4px 24px rgba(67,233,123,0.10);
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
             padding: 32px 0 24px 0;
-            animation: fadeIn 0.6s ease-in-out;
         }
         table {
             width: 98%;
             margin: 0 auto;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: #fff;
-            color: #222;
-            border-radius: 16px;
+            border-collapse: collapse;
+            background: #ffffff;
+            color: #000;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(67,233,123,0.06);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
         }
         th, td {
-            padding: 18px 24px;
+            padding: 12px 16px;
             text-align: left;
         }
         th {
-            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            background: #007bff;
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            border-bottom: 2px solid #43e97b;
-        }
-        tr {
-            transition: background 0.2s;
         }
         tr:nth-child(even) {
-            background: #f7fdf9;
+            background: #f2f2f2;
         }
         tr:nth-child(odd) {
-            background: #f2fbf6;
+            background: #ffffff;
         }
         tr:hover {
-            background: #e6faee;
+            background: #e6f0ff;
         }
         .action-btn {
             text-decoration: none;
@@ -96,27 +90,23 @@
             font-size: 1rem;
             margin-right: 8px;
             transition: background 0.2s, box-shadow 0.2s;
-            box-shadow: 0 2px 8px rgba(67,233,123,0.08);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
             border: none;
             cursor: pointer;
         }
         .action-btn.edit {
-            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            background: #007bff;
             color: #fff;
         }
         .action-btn.edit:hover {
-            background: #219150;
+            background: #0056b3;
         }
         .action-btn.delete {
-            background: #e53935;
+            background: #dc3545;
             color: #fff;
         }
         .action-btn.delete:hover {
-            background: #b71c1c;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            background: #a71d2a;
         }
     </style>
 </head>
