@@ -37,6 +37,10 @@
       font-size: 2em;
       font-weight: 600;
       margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
 
     .form-group {
@@ -47,7 +51,7 @@
     .form-group input,
     .form-group select {
       width: 100%;
-      padding: 12px 14px;
+      padding: 12px 14px 12px 45px; /* space for icon */
       font-size: 1em;
       color: #333;
       background: #fff;
@@ -63,15 +67,18 @@
       box-shadow: 0 0 6px rgba(11, 86, 208, 0.25);
     }
 
-    .form-group input::placeholder {
-      color: #888;
+    .form-group i {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #0b56d0;
+      font-size: 1.1em;
     }
 
     .toggle-password {
-      position: absolute;
       right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
+      left: auto;
       cursor: pointer;
       color: #0b56d0;
     }
@@ -88,6 +95,10 @@
       cursor: pointer;
       transition: 0.3s ease;
       text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-submit:hover {
@@ -96,12 +107,15 @@
     }
 
     .btn-return {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 20px;
       font-size: 0.95em;
       color: #0b56d0;
       text-decoration: none;
       transition: 0.3s;
+      gap: 6px;
     }
 
     .btn-return:hover {
@@ -112,17 +126,21 @@
 </head>
 <body>
   <div class="form-card">
-    <h1>Update User</h1>
+    <h1><i class="fa-solid fa-user-pen"></i> Update User</h1>
     <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST">
       <div class="form-group">
+        <i class="fa-solid fa-user"></i>
         <input type="text" name="username" value="<?=html_escape($user['username']);?>" placeholder="Username" required>
       </div>
+
       <div class="form-group">
+        <i class="fa-solid fa-envelope"></i>
         <input type="email" name="email" value="<?=html_escape($user['email']);?>" placeholder="Email" required>
       </div>
 
       <?php if(!empty($logged_in_user) && $logged_in_user['role'] === 'admin'): ?>
         <div class="form-group">
+          <i class="fa-solid fa-user-shield"></i>
           <select name="role" required>
             <option value="user" <?= $user['role'] === 'user' ? 'selected' : ''; ?>>User</option>
             <option value="admin" <?= $user['role'] === 'admin' ? 'selected' : ''; ?>>Admin</option>
@@ -130,14 +148,15 @@
         </div>
 
         <div class="form-group">
+          <i class="fa-solid fa-lock"></i>
           <input type="password" placeholder="Password" name="password" id="password" required>
           <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
         </div>
       <?php endif; ?>
 
-      <button type="submit" class="btn-submit">Update User</button>
+      <button type="submit" class="btn-submit"><i class="fa-solid fa-floppy-disk"></i> Update User</button>
     </form>
-    <a href="<?=site_url('/users');?>" class="btn-return">Return to Home</a>
+    <a href="<?=site_url('/users');?>" class="btn-return"><i class="fa-solid fa-arrow-left"></i> Return to Home</a>
   </div>
 
   <script>

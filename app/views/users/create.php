@@ -40,12 +40,13 @@
     }
 
     .inputBox {
+      position: relative;
       margin-bottom: 20px;
     }
 
     .inputBox input {
       width: 100%;
-      padding: 14px 15px;
+      padding: 14px 15px 14px 45px; /* space for icon */
       font-size: 1em;
       color: #333;
       background: #ffffff;
@@ -58,6 +59,15 @@
     .inputBox input:focus {
       border-color: #0b56d0;
       box-shadow: 0 0 5px rgba(11, 86, 208, 0.3);
+    }
+
+    .inputBox i {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #0b56d0;
+      font-size: 1.1em;
     }
 
     .inputBox input::placeholder {
@@ -104,21 +114,23 @@
 <body>
 
   <div class="create-user">
-    <h2>Create User</h2>
+    <h2><i class="fa-solid fa-user-plus"></i> Create User</h2>
     <form method="POST" action="<?= site_url('users/create'); ?>">
       <div class="inputBox">
+        <i class="fa-solid fa-user"></i>
         <input type="text" name="username" placeholder="Username" required value="<?= isset($username) ? html_escape($username) : '' ?>">
       </div>
 
       <div class="inputBox">
+        <i class="fa-solid fa-envelope"></i>
         <input type="email" name="email" placeholder="Email" required value="<?= isset($email) ? html_escape($email) : '' ?>">
       </div>
 
-      <button type="submit">Create User</button>
+      <button type="submit"><i class="fa-solid fa-plus"></i> Create User</button>
     </form>
 
     <div class="link-wrapper">
-      <a href="<?= site_url('/users'); ?>">Return to Home</a>
+      <a href="<?= site_url('/users'); ?>"><i class="fa-solid fa-arrow-left"></i> Return to Home</a>
     </div>
   </div>
 

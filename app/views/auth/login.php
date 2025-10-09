@@ -51,6 +51,10 @@
       font-weight: 600;
       font-size: 2em;
       margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
 
     .inputBox {
@@ -60,7 +64,7 @@
 
     .inputBox input {
       width: 100%;
-      padding: 14px 45px 14px 15px;
+      padding: 14px 45px 14px 45px; /* more space for icons */
       font-size: 1em;
       color: #1e3a8a;
       background: #f1f5ff;
@@ -79,15 +83,22 @@
       color: #9ca3af;
     }
 
-    .toggle-password {
+    .inputBox i {
       position: absolute;
-      right: 15px;
       top: 50%;
       transform: translateY(-50%);
-      cursor: pointer;
       color: #2563eb;
-      opacity: 0.8;
       font-size: 1.1em;
+    }
+
+    .inputBox .icon-left {
+      left: 15px;
+    }
+
+    .toggle-password {
+      right: 15px;
+      cursor: pointer;
+      opacity: 0.8;
     }
 
     .toggle-password:hover {
@@ -107,6 +118,10 @@
       text-transform: uppercase;
       transition: 0.3s ease;
       box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .login button:hover {
@@ -145,7 +160,7 @@
 </head>
 <body>
   <div class="login">
-    <h2>Login</h2>
+    <h2><i class="fa-solid fa-right-to-bracket"></i> Login</h2>
 
     <?php if (!empty($error)): ?>
       <div class="error-box">
@@ -155,15 +170,17 @@
 
     <form method="post" action="<?= site_url('auth/login') ?>">
       <div class="inputBox">
+        <i class="fa-solid fa-user icon-left"></i>
         <input type="text" placeholder="Username" name="username" required />
       </div>
 
       <div class="inputBox">
+        <i class="fa-solid fa-lock icon-left"></i>
         <input type="password" placeholder="Password" name="password" id="password" required />
         <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
       </div>
 
-      <button type="submit">Login</button>
+      <button type="submit"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
     </form>
 
     <div class="group">

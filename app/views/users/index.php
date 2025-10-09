@@ -42,6 +42,9 @@
       font-size: 2em;
       font-weight: 700;
       color: #0b56d0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .logout-btn {
@@ -52,6 +55,9 @@
       color: #fff;
       font-weight: 600;
       transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .logout-btn:hover {
@@ -67,6 +73,9 @@
       margin-bottom: 25px;
       color: #0b56d0;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .user-status.error {
@@ -117,7 +126,9 @@
       font-weight: 500;
       transition: 0.3s;
       margin: 0 2px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     a.btn-update {
@@ -149,6 +160,10 @@
       margin-top: 25px;
       text-transform: uppercase;
       text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-create:hover {
@@ -177,6 +192,9 @@
       border-radius: 8px;
       padding: 8px 16px;
       transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .search-form button:hover {
@@ -194,16 +212,20 @@
 
   <div class="dashboard-container">
     <div class="dashboard-header">
-      <h2><?= ($logged_in_user['role'] === 'admin') ? 'Admin Dashboard' : 'User Dashboard'; ?></h2>
-      <a href="<?= site_url('auth/logout'); ?>"><button class="logout-btn">Logout</button></a>
+      <h2><i class="fa-solid fa-user-graduate"></i> <?= ($logged_in_user['role'] === 'admin') ? 'Admin Dashboard' : 'User Dashboard'; ?></h2>
+      <a href="<?= site_url('auth/logout'); ?>">
+        <button class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </a>
     </div>
 
     <?php if(!empty($logged_in_user)): ?>
       <div class="user-status">
+        <i class="fa-solid fa-circle-user"></i>
         <strong>Welcome:</strong> <?= html_escape($logged_in_user['username']); ?>
       </div>
     <?php else: ?>
       <div class="user-status error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
         Logged in user not found
       </div>
     <?php endif; ?>
@@ -211,21 +233,21 @@
     <div class="table-card">
       <form action="<?= site_url('users'); ?>" method="get" class="d-flex mb-3 search-form">
         <?php $q = isset($_GET['q']) ? $_GET['q'] : ''; ?>
-        <input name="q" type="text" class="form-control me-2" placeholder="Search" value="<?= html_escape($q); ?>">
-        <button type="submit">Search</button>
+        <input name="q" type="text" class="form-control me-2" placeholder="Search user..." value="<?= html_escape($q); ?>">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
       </form>
 
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th><i class="fa-solid fa-id-badge"></i> ID</th>
+            <th><i class="fa-solid fa-user"></i> Name</th>
+            <th><i class="fa-solid fa-envelope"></i> Email</th>
             <?php if ($logged_in_user['role'] === 'admin'): ?>
-              <th>Password</th>
-              <th>Role</th>
+              <th><i class="fa-solid fa-lock"></i> Password</th>
+              <th><i class="fa-solid fa-user-shield"></i> Role</th>
             <?php endif; ?>
-            <th>Action</th>
+            <th><i class="fa-solid fa-gear"></i> Action</th>
           </tr>
           <?php foreach ($user as $user): ?>
           <tr>
@@ -237,8 +259,12 @@
               <td><?= html_escape($user['role']); ?></td>
             <?php endif; ?>
             <td>
-              <a href="<?= site_url('/users/update/'.$user['id']); ?>" class="btn-action btn-update">Update</a>
-              <a href="<?= site_url('/users/delete/'.$user['id']); ?>" class="btn-action btn-delete">Delete</a>
+              <a href="<?= site_url('/users/update/'.$user['id']); ?>" class="btn-action btn-update">
+                <i class="fa-solid fa-pen-to-square"></i> Update
+              </a>
+              <a href="<?= site_url('/users/delete/'.$user['id']); ?>" class="btn-action btn-delete">
+                <i class="fa-solid fa-trash"></i> Delete
+              </a>
             </td>
           </tr>
           <?php endforeach; ?>
@@ -250,7 +276,9 @@
       </div>
     </div>
 
-    <a href="<?= site_url('users/create'); ?>" class="btn-create">+ Create New User</a>
+    <a href="<?= site_url('users/create'); ?>" class="btn-create">
+      <i class="fa-solid fa-user-plus"></i> Create New User
+    </a>
   </div>
 </body>
 </html>
